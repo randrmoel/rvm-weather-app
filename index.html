@@ -20,14 +20,17 @@
             <div class = "row">
                 <div style = "padding-top:1%" class = "col-sm-4"><!--Div for Search and prepend-->
                     <h3>Search for a City:</h3>
-                    <textarea id="txtbx" rows="1" cols="30"> </textarea>
-                    <button style="padding:1px; margin:0px; border-radius:4px" class="btn" ><i  class="fa fa-search"></i></button>
-                    <br>
-                    <br>
-                    <div id="city" class = "container">
-                        <h3 class="city">City 1</h3>
-                        <h3 class="city">City 2</h3>
-                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txtbx" type="text" class="form-control"> 
+                        <div class="input-group-append">
+                          <button class="btn btn-primary" type="button" id="button-addon2">
+                              <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <ul id="city" class="list-group"> <!--Cities prepend here-->
+                      </ul>
+                      
                 </div>
                 <br>
                 <div style="padding-top:1%" class = "col-sm-8">

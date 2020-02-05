@@ -52,17 +52,6 @@
     margin:.25% 0 0 -5%;
 }
 
-#txtbx{
-    display:block;
-    float:left;
-    padding: 0 0 1% 0;
-}
-
-.fa .fa-search{
-    display:block;
-    float:left;
-    margin:-1px -2px -2px;
-}
 
 .wthr-summ{
     border-width:1px;
@@ -71,15 +60,4 @@
     border-radius:5px;
     margin-right:-5px;
     padding:0;
-}
-
-i{
-    border-radius:4px; 
-    padding:3px 2px 5px 2px; 
-    margin:0; width:20px; 
-    height:20px; 
-    background-color:blue; 
-    color:white;
-    border-width:2px; 
-    border-color:lightskyblue;
 }
