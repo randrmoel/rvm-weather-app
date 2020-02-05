@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+ <html > 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weather Application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+    <body>
+        <div class = "container">
+            <div style="width:100%" class = "jumbotron text-center vertical-center">
+                <h1>Weather Dashboard</h1>
+            </div>
+            <div class = "row">
+                <div style = "padding-top:1%" class = "col-sm-4"><!--Div for Search and prepend-->
+                    <h3>Search for a City:</h3>
+                    <textarea class="txtbx" rows="1" cols="30"> </textarea>
+                    <button style="padding:1px; margin:0px; border-radius:4px" class="btn" ><i style="border-radius:4px; padding:3px 2px 5px 2px; margin:0; width:20px; height:20px; background-color:blue; color:white;border-width:2px; border-color:lightskyblue" class="fa fa-search"></i></button>
+                    <br>
+                    <br>
+                    <div id="city" class = "container">
+                        <h3 class="city">City 1</h3>
+                        <h3 class="city">City 2</h3>
+                    </div>
+                </div>
+                <br>
+                <div style="padding-top:1%" class = "col-sm-8">
+                    <div class="wthr-summ row">
+                        <div class="col-sm-12">
+                            <p>Atlanta</p>
+                            <p>Temperature</p>
+                            <p>Humidity</p>
+                            <p>Wind Speed:</p>
+                            <p>UV Index</p>
+                        </div>
+                    </div> <!--End Internal Row-->
+                    <div class = "row">
+                        <div class = "col-sm-12">
+                            <p>Five Day Forecast:</p>
+                        </div>
+                    </div> <!--End Internal Row-->
+
+                    <div class = "rowcard row">
+                        <div class ="colcard col-sm">
+                            <div class="card" >
+                                <div class="card-body">
+                                  <h5 id="date-1" class="card-title">Date 1</h5>
+                                  <p id = "Weather-Icon-1" class="card-text">Weather Icon</p>
+                                  <p id="Temp-1"  class="card-text"> Temp </p>
+                                  <p id = "Hum-1" class="card-text"> Humidity</p>
+                                </div>        
+                            </div> <!--Card 1-->
+                        </div> <!--End Column-->
+                        
+                        <div class ="colcard col-sm">
+                            <div class="card">
+                                <div class="card-body">
+                                  <h5 id="date-2" class="card-title">Date 2</h5>
+                                  <p id = "Weather-Icon-2" class="card-text">Weather Icon</p>
+                                  <p id="Temp-2"  class="card-text"> Temp </p>
+                                  <p id = "Hum-2" class="card-text"> Humidity</p>
+                                </div>        
+                            </div> <!--Card 2-->
+                        </div> <!--End Column-->
+
+                        <div class = "colcard col-sm">
+                            <div class="card" >
+                                <div class="card-body">
+                                  <h5 id="date-3" class="card-title">Date 3</h5>
+                                  <p id = "Weather-Icon-3" class="card-text">Weather Icon</p>
+                                  <p id="Temp-3"  class="card-text"> Temp </p>
+                                  <p id = "Hum-3" class="card-text"> Humidity</p>
+                                </div>        
+                            </div> <!--Card 3-->
+                        </div> <!--End Column-->
+
+                        <div class = "colcard col-sm">
+                            <div class="card" >
+                                <div class="card-body">
+                                  <h5 id="date-4" class="card-title">Date 4</h5>
+                                  <p id = "Weather-Icon-4" class="card-text">Weather Icon</p>
+                                  <p id="Temp-4"  class="card-text"> Temp </p>
+                                  <p id = "Hum-4" class="card-text"> Humidity</p>
+                                </div>        
+                            </div> <!--Card 4-->
+                        </div> <!--End Column-->
+
+                        <div class = "colcard col-sm">
+                            <div class="card" >
+                                <div class="card-body">
+                                  <h5 id="date-5" class="card-title">Date 5</h5>
+                                  <p id = "Weather-Icon-5" class="card-text">Weather Icon</p>
+                                  <p id="Temp-5"  class="card-text"> Temp </p>
+                                  <p id = "Hum-5" class="card-text"> Humidity</p>
+                                </div>        
+                            </div> <!--Card 5-->
+                        </div> <!--End Column-->
+                    </div> <!--End Row-->
+                </div> <!--End 2nd Outer Column-->
+            </div> <!--End Row-->
+        </div><!--End Container-->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="script.js" type="text/javascript"></script>
+    </body>
+</html>
