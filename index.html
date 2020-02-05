@@ -20,8 +20,8 @@
             <div class = "row">
                 <div style = "padding-top:1%" class = "col-sm-4"><!--Div for Search and prepend-->
                     <h3>Search for a City:</h3>
-                    <textarea class="txtbx" rows="1" cols="30"> </textarea>
-                    <button style="padding:1px; margin:0px; border-radius:4px" class="btn" ><i style="border-radius:4px; padding:3px 2px 5px 2px; margin:0; width:20px; height:20px; background-color:blue; color:white;border-width:2px; border-color:lightskyblue" class="fa fa-search"></i></button>
+                    <textarea id="txtbx" rows="1" cols="30"> </textarea>
+                    <button style="padding:1px; margin:0px; border-radius:4px" class="btn" ><i  class="fa fa-search"></i></button>
                     <br>
                     <br>
                     <div id="city" class = "container">
@@ -33,11 +33,11 @@
                 <div style="padding-top:1%" class = "col-sm-8">
                     <div class="wthr-summ row">
                         <div class="col-sm-12">
-                            <p>Atlanta</p>
-                            <p>Temperature</p>
-                            <p>Humidity</p>
-                            <p>Wind Speed:</p>
-                            <p>UV Index</p>
+                            <h3 id="dispCity">Atlanta</h3>
+                            <h4 id="dispTmp">Temperature</h4>
+                            <h4 id="dispHum">Humidity</h4>
+                            <h4 id="dispWnd">Wind Speed:</h4>
+                            <h4 id="dispUV">UV Index</h4>
                         </div>
                     </div> <!--End Internal Row-->
                     <div class = "row">
