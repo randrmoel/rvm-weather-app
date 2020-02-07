@@ -5,6 +5,8 @@ var lng="";
 var m = moment();
 var nowDate = m.format("MM/DD/YYYY");
 
+// Need another button listener for the added cities to recall the forcast
+
 function addCity(cityName){
     newLi = $("<li>").text(cityName).attr("class","list-group-item");
     $("#city").prepend(newLi);
