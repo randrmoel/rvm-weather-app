@@ -28,9 +28,7 @@
                           </button>
                         </div>
                       </div>
-                      <ul id="city" class="list-group"> <!--Cities prepend here-->
-                      </ul>
-                      
+                      <ul id="city" class="list-group"><!--Cities prepend here--></ul>
                 </div>
                 <br>
                 <div style="padding-top:1%" class = "col-sm-8">
@@ -43,9 +41,10 @@
                             <h4>UV Index:<span style="color:white; margin-left:2px; padding-right:5px" id="dispUV"></span></h4>
                         </div>
                     </div> <!--End Internal Row-->
+                    <br>
                     <div class = "row">
                         <div class = "col-sm-12">
-                            <p>Five Day Forecast:</p>
+                            <h3>Five Day Forecast:</h3>
                         </div>
                     </div> <!--End Internal Row-->
 
@@ -53,21 +52,32 @@
                         <div class ="colcard col-sm">
                             <div class="card" >
                                 <div class="card-body">
-                                  <h5 id="date-1" class="card-title">Date 1</h5>
-                                  <p id = "Weather-Icon-1" class="card-text">Weather Icon</p>
-                                  <p id="Temp-1"  class="card-text"> Temp </p>
-                                  <p id = "Hum-1" class="card-text"> Humidity</p>
+                                  <h6 id="Date-0" class="card-title">Date 0</h6>
+                                  <h6 id = "Weather-Icon-0" class="card-img"><img  style='width:90%; padding:0; margin:0' src="http://openweathermap.org/img/wn/01d@2x.png"></h6>
+                                  <h6 id="Temp-0"  class="card-text"> Temp </h6>
+                                  <h6 id = "Hum-0" class="card-text"> Humidity</h6>
                                 </div>        
-                            </div> <!--Card 1-->
+                            </div> <!--Card 0-->
                         </div> <!--End Column-->
                         
                         <div class ="colcard col-sm">
                             <div class="card">
                                 <div class="card-body">
-                                  <h5 id="date-2" class="card-title">Date 2</h5>
-                                  <p id = "Weather-Icon-2" class="card-text">Weather Icon</p>
-                                  <p id="Temp-2"  class="card-text"> Temp </p>
-                                  <p id = "Hum-2" class="card-text"> Humidity</p>
+                                  <h6 id="Date-1" class="card-title">Date 1</h6>
+                                  <h6 id = "Weather-Icon-1" class="card-img"><img  style='width:90%; padding:0; margin:0' src="http://openweathermap.org/img/wn/01d@2x.png"></h6>
+                                  <h6 id="Temp-1"  class="card-text"> Temp </h6>
+                                  <h6 id = "Hum-1" class="card-text"> Humidity</h6>
+                                </div>        
+                            </div> <!--Card 1-->
+                        </div> <!--End Column-->
+
+                        <div class = "colcard col-sm">
+                            <div class="card" >
+                                <div class="card-body">
+                                  <h6 id="Date-2" class="card-title">Date 2</h6>
+                                  <h6 id = "Weather-Icon-2" class="card-img"><img  style='width:90%;padding:0; margin:0' src="http://openweathermap.org/img/wn/01d@2x.png"></h6>
+                                  <h6 id="Temp-2"  class="card-text"> Temp </h6>
+                                  <h6 id = "Hum-2" class="card-text"> Humidity</h6>
                                 </div>        
                             </div> <!--Card 2-->
                         </div> <!--End Column-->
@@ -75,10 +85,10 @@
                         <div class = "colcard col-sm">
                             <div class="card" >
                                 <div class="card-body">
-                                  <h5 id="date-3" class="card-title">Date 3</h5>
-                                  <p id = "Weather-Icon-3" class="card-text">Weather Icon</p>
-                                  <p id="Temp-3"  class="card-text"> Temp </p>
-                                  <p id = "Hum-3" class="card-text"> Humidity</p>
+                                  <h6 id="Date-3" class="card-title">Date 3</h6>
+                                  <h6 id = "Weather-Icon-3" class="card-img"><img  style='width:90%; padding:0; margin:0' src="http://openweathermap.org/img/wn/01d@2x.png"></h6>
+                                  <h6 id = "Temp-3"  class="card-text"> Temp </h6>
+                                  <h6 id = "Hum-3" class="card-text"> Humidity</h6>
                                 </div>        
                             </div> <!--Card 3-->
                         </div> <!--End Column-->
@@ -86,23 +96,12 @@
                         <div class = "colcard col-sm">
                             <div class="card" >
                                 <div class="card-body">
-                                  <h5 id="date-4" class="card-title">Date 4</h5>
-                                  <p id = "Weather-Icon-4" class="card-text">Weather Icon</p>
-                                  <p id="Temp-4"  class="card-text"> Temp </p>
-                                  <p id = "Hum-4" class="card-text"> Humidity</p>
+                                  <h6 id="Date-4" class="card-title">Date 4</h6>
+                                  <h6 id = "Weather-Icon-4" class="card-img"><img  style='width:90%; padding:0; margin:0' src="http://openweathermap.org/img/wn/01d@2x.png"></h6>
+                                  <h6 id = "Temp-4"  class="card-text"> Temp </h6>
+                                  <h6 id = "Hum-4" class="card-text"> Humidity</h6>
                                 </div>        
                             </div> <!--Card 4-->
-                        </div> <!--End Column-->
-
-                        <div class = "colcard col-sm">
-                            <div class="card" >
-                                <div class="card-body">
-                                  <h5 id="date-5" class="card-title">Date 5</h5>
-                                  <p id = "Weather-Icon-5" class="card-text">Weather Icon</p>
-                                  <p id="Temp-5"  class="card-text"> Temp </p>
-                                  <p id = "Hum-5" class="card-text"> Humidity</p>
-                                </div>        
-                            </div> <!--Card 5-->
                         </div> <!--End Column-->
                     </div> <!--End Row-->
                 </div> <!--End 2nd Outer Column-->
