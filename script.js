@@ -62,7 +62,7 @@ function runQuery(inCity){
                 lng=resp.coord.lon;
                 lat=resp.coord.lat;
 
-                qUVI = "https:\\api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lng;
+                qUVI = "https://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lng;
                 qU = qUVI + API;
             
                 $.ajax(
