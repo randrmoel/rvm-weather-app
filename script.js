@@ -37,8 +37,8 @@ function uviColor(uvIndx){
 }
 
 function runQuery(inCity){
-    qBlnk1 = "https:\\api.openweathermap.org/data/2.5/weather?q=";
-    qBlnk2 = "https:\\api.openweathermap.org/data/2.5/forecast?q=";
+    qBlnk1 = "https://api.openweathermap.org/data/2.5/weather?q=";
+    qBlnk2 = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
     Units = "&units=imperial"; 
     API = "&APPID=7872f4a78b77312be971aa3219f71aef";
