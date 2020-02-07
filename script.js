@@ -52,7 +52,7 @@ function runQuery(inCity){
             {url:qNow,
             type:"GET"
             }).then(function(resp){
-                iconPic = "http://openweathermap.org/img/wn/"+resp.weather[0].icon+"@2x.png";
+                iconPic = "https://openweathermap.org/img/wn/"+resp.weather[0].icon+"@2x.png";
 
                 $("#dispCity").html(inCity + " (" + nowDate +")" + "<img  style='vertical-align:middle; width:6%; padding:0; margin:0' src="+ iconPic + ">");
                 $("#dispTmp").html(" "+parseFloat(resp.main.temp).toFixed(1) + "<span>&#176</span>" +"F");
@@ -102,7 +102,7 @@ function runQuery(inCity){
                 $(dateStr[i]).text(dt);
    
                 icon = frcstArry[i].weather[0].icon;
-                iconPic = "http://openweathermap.org/img/wn/"+icon+"@2x.png";
+                iconPic = "https://openweathermap.org/img/wn/"+icon+"@2x.png";
                 console.log(iconPic);
                 $(iconStr[i]).html("<img style='width:90%; padding:0; margin:0' src="+ iconPic + ">");
                 $(tempStr[i]).html(parseFloat(frcstArry[i].main.temp).toFixed(1) + "&#176" +"F");
