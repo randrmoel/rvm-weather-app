@@ -82,13 +82,13 @@ function runQuery(inCity){
             type:"GET"
         }).then(function(resp3){
             frcstArry = [];
-            console.log(resp3);
+            //console.log(resp3);
             for(i=0; i<resp3.list.length; i++){
                 if (resp3.list[i].dt_txt.indexOf("15:00:00") !== -1){
                     frcstArry.push(resp3.list[i]);
                 }
             }
-            console.log(frcstArry);
+            //console.log(frcstArry);
             for(i=0; i<5; i++){
                 dateStr = ["#Date-0", "#Date-1", "#Date-2", "#Date-3", "#Date-4"];
                 iconStr = ["#Weather-Icon-0", "#Weather-Icon-1", "#Weather-Icon-2", "#Weather-Icon-3", "#Weather-Icon-4"];
@@ -97,13 +97,13 @@ function runQuery(inCity){
                 dt = frcstArry[i].dt_txt;
                 dt = dt.substring(5,7) + "/" + dt.substring(8,10) + "/" + dt.substring(0,4);
                 dt = dt.trim();
-                console.log(dt);
+                //console.log(dt);
                 
                 $(dateStr[i]).text(dt);
    
                 icon = frcstArry[i].weather[0].icon;
                 iconPic = "https://openweathermap.org/img/wn/"+icon+"@2x.png";
-                console.log(iconPic);
+                //console.log(iconPic);
                 $(iconStr[i]).html("<img style='width:90%; padding:0; margin:0' src="+ iconPic + ">");
                 $(tempStr[i]).html(parseFloat(frcstArry[i].main.temp).toFixed(1) + "&#176" +"F");
                 $(humStr[i]).text(frcstArry[i].main.humidity+"%")
