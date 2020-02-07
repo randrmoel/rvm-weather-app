@@ -36,13 +36,7 @@ function uviColor(uvIndx){
     }
 }
 
-clrCity();
-
-$(".btn").on("click", function(e){
-
-    e.preventDefault();
-    inCity = $.trim($("#txtbx").val());
-
+function runQuery(inCity){
     qBlnk1 = "https:\\api.openweathermap.org/data/2.5/weather?q=";
     qBlnk2 = "https:\\api.openweathermap.org/data/2.5/forecast?q=";
 
@@ -115,5 +109,19 @@ $(".btn").on("click", function(e){
                 $(humStr[i]).text(frcstArry[i].main.humidity+"%")
             }
         }); //End of outer ajax call for forecast
+}
+
+clrCity();
+
+$(".btn").on("click", function(e){
+    e.preventDefault();
+    inCity = $.trim($("#txtbx").val());
+    runQuery(inCity);
 }); // End of button listener 1
 
+$("#city").on("click", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    whcCity = $(event.target).text();
+    runQuery(whcCity); 
+});
