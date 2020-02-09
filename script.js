@@ -4,13 +4,35 @@ var lat="";
 var lng="";
 var m = moment();
 var nowDate = m.format("MM/DD/YYYY");
+var inCity = "";
 var cityList =[];
-
-// Need another button listener for the added cities to recall the forcast
+const initCity = [];
+addIt = true;
 
 function addCity(cityName){
     newLi = $("<li>").text(cityName).attr("class","list-group-item");
     $("#city").prepend(newLi);
+}
+
+function rendHist(){
+    for(i=cityList.length-1; i > -1; i--){
+        addCity(cityList[i]);
+    }
+    runQuery(cityList[0], false);
+}
+
+function initMem(){
+    var memTest = JSON.parse(localStorage.getItem("pCityList"));
+    console.log(memTest);
+    if(memTest === null){
+        localStorage.setItem("pCityList",JSON.stringify(initCity));
+        cityList = [];
+    } else if (memTest.length !== 0){
+        cityList=JSON.parse(localStorage.getItem("pCityList"));
+        clrCity();
+        rendHist();
+        console.log(cityList);
+    }
 }
 
 function titleCase(s){
@@ -48,7 +70,7 @@ function uviColor(uvIndx){
     }
 }
 
-function runQuery(inCity){
+function runQuery(inCity, addIt){
     qBlnk1 = "https://api.openweathermap.org/data/2.5/weather?q=";
     qBlnk2 = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
@@ -58,7 +80,9 @@ function runQuery(inCity){
     
     qFutr = qBlnk2+inCity+Units+API;
 
-    addCity(inCity);
+    if(addIt){
+        addCity(inCity);
+    }
     clrInput();
         $.ajax(
             {url:qNow,
@@ -123,20 +147,23 @@ function runQuery(inCity){
         }); //End of outer ajax call for forecast
 }
 
-clrCity();
+initMem();
 
 $(".btn").on("click", function(e){
     e.preventDefault();
     inCity = $.trim($("#txtbx").val());
     inCity = titleCase(inCity);
-    cityList[cityList.length] = inCity; // for some reason .push not working
+    cityList.unshift(inCity);
+    localStorage.setItem("pCityList", JSON.stringify(cityList));
     console.log(cityList);
-    runQuery(inCity);
+    runQuery(inCity, true);
 }); // End of button listener 1
 
 $("#city").on("click", function(e){
     e.preventDefault();
     e.stopPropagation();
     whcCity = $(event.target).text();
-    runQuery(whcCity); 
+    cityList.unshift(whcCity);
+    localStorage.setItem("pCityList", JSON.stringify(cityList));
+    runQuery(whcCity, true); 
 });
