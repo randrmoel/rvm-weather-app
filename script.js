@@ -103,14 +103,18 @@ function runQuery(inCity, addIt){
     
     qFutr = qBlnk2+inCity+Units+API;
 
-    if(addIt){
-        addCity(inCity);
-    }
     clrInput();
         $.ajax(
             {url:qNow,
             type:"GET"
             }).then(function(resp){
+                if(addIt){
+                    addCity(inCity);
+                    cityList.unshift(inCity);
+                    localStorage.setItem("pCityList", JSON.stringify(cityList));
+                }
+
+                console.log(cityList);
                 iconPic = "https://openweathermap.org/img/wn/"+resp.weather[0].icon+"@2x.png";
 
                 $("#dispCity").html(inCity + " (" + nowDate +")" + "<img  style='vertical-align:middle; width:6%; padding:0; margin:0' src="+ iconPic + ">");
@@ -134,6 +138,10 @@ function runQuery(inCity, addIt){
                         color = uviColor(uvTxt); 
                         $("#dispUV").attr("style", "background-color:" + color + "; color:white; margin-left:2px; padding-right:5px");
                 }); // End of nexted ajax call 1
+        }).catch(function(err){
+            console.log(err);
+            alert(err.responseJSON.message);
+            return;
         }); // End of outer ajax call 1
 
         $.ajax(
@@ -176,9 +184,6 @@ $("#button-addon2").on("click", function(e){
     e.preventDefault();
     inCity = $.trim($("#txtbx").val());
     inCity = titleCase(inCity);
-    cityList.unshift(inCity);
-    localStorage.setItem("pCityList", JSON.stringify(cityList));
-    console.log(cityList);
     runQuery(inCity, true);
 }); // End of button listener 1
 
@@ -186,8 +191,6 @@ $("#city").on("click", function(e){
     e.preventDefault();
     e.stopPropagation();
     whcCity = $(event.target).text();
-    cityList.unshift(whcCity);
-    localStorage.setItem("pCityList", JSON.stringify(cityList));
     runQuery(whcCity, true); 
 });
 
