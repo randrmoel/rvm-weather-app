@@ -20,15 +20,21 @@
             <div class = "row">
                 <div style = "padding-top:1%" class = "col-sm-4"><!--Div for Search and prepend-->
                     <h3>Search for a City:</h3>
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <input id="txtbx" type="text" class="form-control"> 
                         <div class="input-group-append">
-                          <button class="btn btn-primary" type="button" id="button-addon2">
-                              <i class="fa fa-search"></i>
+                          <button class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="top" title="Add a City" id="button-addon2">
+                              <i class="fas fa-search"></i>
                           </button>
+                          <button class= "btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Clear History" id="button-erase">
+                            <i class="fas fa-backspace"></i>
+                        </button>
                         </div>
+                        
+
+                        
                       </div>
-                      <ul id="city" class="list-group"><!--Cities prepend here--></ul>
+                    <ul id="city" class="list-group"><!--Cities prepend here--></ul>
                 </div>
                 <br>
                 <div style="padding-top:1%" class = "col-sm-8">

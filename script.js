@@ -21,6 +21,29 @@ function rendHist(){
     runQuery(cityList[0], false);
 }
 
+function initHTML(){
+    $("#dispCity").text("City");
+    $("#dispTmp").text("");
+    $("#dispHum").text("");
+    $("#dispWnd").text("");
+    $("#dispUV").text("");
+    $("#dispUV").attr("style", "background-color:white; color:white; margin-left:2px; padding-right:5px");
+
+    
+    dateTxt = ["Date 0", "Date 1", "Date 2", "Date 3", "Date 4"]
+    dateStr = ["#Date-0", "#Date-1", "#Date-2", "#Date-3", "#Date-4"];
+    iconStr = ["#Weather-Icon-0", "#Weather-Icon-1", "#Weather-Icon-2", "#Weather-Icon-3", "#Weather-Icon-4"];
+    tempStr = ["#Temp-0", "#Temp-1", "#Temp-2", "#Temp-3", "#Temp-4"];
+    humStr = ["#Hum-0", "#Hum-1", "#Hum-2", "#Hum-3", "#Hum-4"];
+
+    for(i=0; i<5; i++){
+        $(dateStr[i]).text(dateTxt[i]);
+        $(iconStr[i]).html("<img  style='width:90%; padding:0; margin:0' src='https://openweathermap.org/img/wn/01d@2x.png'>");
+        $(tempStr[i]).text("Temp");
+        $(humStr[i]).text("Humidity");
+    }
+}
+
 function initMem(){
     var memTest = JSON.parse(localStorage.getItem("pCityList"));
     console.log(memTest);
@@ -149,7 +172,7 @@ function runQuery(inCity, addIt){
 
 initMem();
 
-$(".btn").on("click", function(e){
+$("#button-addon2").on("click", function(e){
     e.preventDefault();
     inCity = $.trim($("#txtbx").val());
     inCity = titleCase(inCity);
@@ -166,4 +189,11 @@ $("#city").on("click", function(e){
     cityList.unshift(whcCity);
     localStorage.setItem("pCityList", JSON.stringify(cityList));
     runQuery(whcCity, true); 
+});
+
+$("#button-erase").on("click", function(e){
+    e.preventDefault();
+    clrCity();
+    initHTML();
+    localStorage.setItem("pCityList",JSON.stringify(initCity));
 });
