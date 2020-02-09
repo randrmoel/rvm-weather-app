@@ -1,3 +1,5 @@
+//Initialize variables
+
 var inTxt="";
 var iconPic = "";
 var lat="";
@@ -9,11 +11,15 @@ var cityList =[];
 const initCity = [];
 addIt = true;
 
+
+// prepend a city to the html, city name has been processed as Title Case
+// and won't be added if it's not found by the weather api
 function addCity(cityName){
     newLi = $("<li>").text(cityName).attr("class","list-group-item");
     $("#city").prepend(newLi);
-}
+} 
 
+// Renders the local storage list to the HTML
 function rendHist(){
     for(i=cityList.length-1; i > -1; i--){
         addCity(cityList[i]);
@@ -21,6 +27,8 @@ function rendHist(){
     runQuery(cityList[0], false);
 }
 
+
+// Resets the HTML to its initial state
 function initHTML(){
     $("#dispCity").text("City");
     $("#dispTmp").text("");
@@ -44,6 +52,7 @@ function initHTML(){
     }
 }
 
+// Initializes local memory and adds an object if missing
 function initMem(){
     var memTest = JSON.parse(localStorage.getItem("pCityList"));
     console.log(memTest);
@@ -58,6 +67,9 @@ function initMem(){
     }
 }
 
+
+// Function for creating Title case from city name, ensures proper capitalization
+// of city names
 function titleCase(s){
     s=s.toLowerCase().trim();
     console.log(s);
@@ -69,14 +81,21 @@ function titleCase(s){
     return s;
 }
 
+
+// clears the text box input
+// used after input
 function clrInput(){
     $("#txtbx").val("");
 }
 
+// Clears the local memory
 function clrCity(){
     $("#city").empty();
 }
 
+
+// Sets the color of the UV Index based on a color standard
+// see: http://www.theozonehole.com/images/category.gif  Colors were matched
 function uviColor(uvIndx){
     n = parseFloat(uvIndx);
 
@@ -93,6 +112,9 @@ function uviColor(uvIndx){
     }
 }
 
+// This is the main query function
+// It contains all the AJAX Calls and performs error handling
+// HTML updates, and other housekeeping
 function runQuery(inCity, addIt){
     qBlnk1 = "https://api.openweathermap.org/data/2.5/weather?q=";
     qBlnk2 = "https://api.openweathermap.org/data/2.5/forecast?q=";
@@ -178,8 +200,11 @@ function runQuery(inCity, addIt){
         }); //End of outer ajax call for forecast
 }
 
+// Start processing
 initMem();
 
+
+// Button listener for adding a city and finding its weather
 $("#button-addon2").on("click", function(e){
     e.preventDefault();
     inCity = $.trim($("#txtbx").val());
@@ -187,6 +212,9 @@ $("#button-addon2").on("click", function(e){
     runQuery(inCity, true);
 }); // End of button listener 1
 
+
+// Button listener for refinding weather from previous cities
+// in the list
 $("#city").on("click", function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -194,6 +222,9 @@ $("#city").on("click", function(e){
     runQuery(whcCity, true); 
 });
 
+
+//Button listener for erasing history and wiping the HTML
+// form where cities are kept
 $("#button-erase").on("click", function(e){
     e.preventDefault();
     clrCity();
