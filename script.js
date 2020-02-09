@@ -4,12 +4,24 @@ var lat="";
 var lng="";
 var m = moment();
 var nowDate = m.format("MM/DD/YYYY");
+var cityList =[];
 
 // Need another button listener for the added cities to recall the forcast
 
 function addCity(cityName){
     newLi = $("<li>").text(cityName).attr("class","list-group-item");
     $("#city").prepend(newLi);
+}
+
+function titleCase(s){
+    s=s.toLowerCase().trim();
+    console.log(s);
+    l = s.split(" ");
+    for(i=0; i<l.length; i++){
+        l[i] = l[i][0].toUpperCase() + l[i].slice(1);
+    };
+    s = l.join(" ");
+    return s;
 }
 
 function clrInput(){
@@ -116,6 +128,9 @@ clrCity();
 $(".btn").on("click", function(e){
     e.preventDefault();
     inCity = $.trim($("#txtbx").val());
+    inCity = titleCase(inCity);
+    cityList[cityList.length] = inCity; // for some reason .push not working
+    console.log(cityList);
     runQuery(inCity);
 }); // End of button listener 1
 
