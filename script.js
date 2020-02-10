@@ -11,6 +11,11 @@ var cityList =[];
 const initCity = [];
 addIt = true;
 
+function noLeadZero(sDatePart){
+    if(sDatePart[0]==="0"){
+        return sDatePart[1];
+    } else return sDatePart;
+}
 
 // prepend a city to the html, city name has been processed as Title Case
 // and won't be added if it's not found by the weather api
@@ -184,7 +189,7 @@ function runQuery(inCity, addIt){
                 tempStr = ["#Temp-0", "#Temp-1", "#Temp-2", "#Temp-3", "#Temp-4"];
                 humStr = ["#Hum-0", "#Hum-1", "#Hum-2", "#Hum-3", "#Hum-4"];
                 dt = frcstArry[i].dt_txt;
-                dt = dt.substring(5,7) + "/" + dt.substring(8,10) + "/" + dt.substring(0,4);
+                dt = noLeadZero(dt.substring(5,7)) + "/" + noLeadZero(dt.substring(8,10)) + "/" + dt.substring(0,4);
                 dt = dt.trim();
                 //console.log(dt);
                 
