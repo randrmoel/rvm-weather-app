@@ -13,7 +13,7 @@ addIt = true;
 
 function noLeadZero(sDatePart){
     if(sDatePart[0]==="0"){
-        return sDatePart[1];
+        return sDatePart.slice(1);
     } else return sDatePart;
 }
 
