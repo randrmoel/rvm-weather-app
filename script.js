@@ -60,7 +60,7 @@ function initHTML(){
 // Initializes local memory and adds an object if missing
 function initMem(){
     var memTest = JSON.parse(localStorage.getItem("pCityList"));
-    //console.log(memTest);
+    
     if(memTest === null){
         localStorage.setItem("pCityList",JSON.stringify(initCity));
         cityList = [];
@@ -68,7 +68,7 @@ function initMem(){
         cityList=JSON.parse(localStorage.getItem("pCityList"));
         clrCity();
         rendHist();
-        //console.log(cityList);
+        
     }
 }
 
@@ -77,7 +77,7 @@ function initMem(){
 // of city names
 function titleCase(s){
     s=s.toLowerCase().trim();
-    //console.log(s);
+  
     l = s.split(" ");
     for(i=0; i<l.length; i++){
         l[i] = l[i][0].toUpperCase() + l[i].slice(1);
@@ -141,7 +141,7 @@ function runQuery(inCity, addIt){
                     localStorage.setItem("pCityList", JSON.stringify(cityList));
                 }
 
-                //console.log(cityList);
+               
                 iconPic = "https://openweathermap.org/img/wn/"+resp.weather[0].icon+"@2x.png";
 
                 $("#dispCity").html(inCity + " (" + nowDate +")" + "<img  style='vertical-align:middle; width:6%; padding:0; margin:0' src="+ iconPic + ">");
@@ -166,7 +166,7 @@ function runQuery(inCity, addIt){
                         $("#dispUV").attr("style", "background-color:" + color + "; color:white; margin-left:2px; padding-right:5px");
                 }); // End of nexted ajax call 1
         }).catch(function(err){
-            //console.log(err);
+            
             alert(err.responseJSON.message);
             return;
         }); // End of outer ajax call 1
@@ -176,13 +176,13 @@ function runQuery(inCity, addIt){
             type:"GET"
         }).then(function(resp3){
             frcstArry = [];
-            //console.log(resp3);
+            
             for(i=0; i<resp3.list.length; i++){
                 if (resp3.list[i].dt_txt.indexOf("15:00:00") !== -1){
                     frcstArry.push(resp3.list[i]);
                 }
             }
-            //console.log(frcstArry);
+            
             for(i=0; i<5; i++){
                 dateStr = ["#Date-0", "#Date-1", "#Date-2", "#Date-3", "#Date-4"];
                 iconStr = ["#Weather-Icon-0", "#Weather-Icon-1", "#Weather-Icon-2", "#Weather-Icon-3", "#Weather-Icon-4"];
@@ -191,13 +191,13 @@ function runQuery(inCity, addIt){
                 dt = frcstArry[i].dt_txt;
                 dt = noLeadZero(dt.substring(5,7)) + "/" + noLeadZero(dt.substring(8,10)) + "/" + dt.substring(0,4);
                 dt = dt.trim();
-                //console.log(dt);
+                
                 
                 $(dateStr[i]).text(dt);
    
                 icon = frcstArry[i].weather[0].icon;
                 iconPic = "https://openweathermap.org/img/wn/"+icon+"@2x.png";
-                //console.log(iconPic);
+                
                 $(iconStr[i]).html("<img style='width:80%; padding:0; margin:0' src="+ iconPic + ">");
                 $(tempStr[i]).html("Temp: "+parseFloat(frcstArry[i].main.temp).toFixed(0) + "&#176" +"F");
                 $(humStr[i]).text("Hum: " + frcstArry[i].main.humidity+"%")
