@@ -224,7 +224,7 @@ $("#city").on("click", function(e){
     e.preventDefault();
     e.stopPropagation();
     whcCity = $(event.target).text();
-    runQuery(whcCity, true); 
+    runQuery(whcCity, false); 
 });
 
 
