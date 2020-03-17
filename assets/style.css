@@ -8,6 +8,13 @@
     padding:1% 0 1% 0;
 }
 
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 10px;
+}
+
 .card {
     background-color: #1568b6;
     font-family : Arial, Helvetica, sans-serif;
