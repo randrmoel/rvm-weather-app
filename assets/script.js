@@ -214,7 +214,12 @@ $("#button-addon2").on("click", function(e){
     e.preventDefault();
     inCity = $.trim($("#txtbx").val());
     inCity = titleCase(inCity);
-    runQuery(inCity, true);
+    if(cityList.indexOf(inCity) === -1){
+        runQuery(inCity, true);
+    }
+    else {
+        runQuery(inCity, false);
+    }
 }); // End of button listener 1
 
 
